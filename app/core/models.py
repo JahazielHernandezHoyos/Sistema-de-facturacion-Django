@@ -9,10 +9,21 @@ class type(models.Model):
 
     class Meta:
         verbose_name="Tipo"
-        verbose_name_plural = "Tipo"
+        verbose_name_plural = "Tipos"
+        ordering = ['id']
+
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name="Categoria"
+        verbose_name_plural = "Categorias"
         ordering = ['id']
 
 class Employee(models.Model):
+    categ = models.ManyToManyField(Category, verbose_name="Categorias")
     type = models.ForeignKey(type, on_delete=models.CASCADE)
     names = models.CharField(max_length=100, verbose_name='Nombres')
     ci = models.CharField(max_length=10, unique=True, verbose_name='Cedula de Identidad')
@@ -34,3 +45,4 @@ class Employee(models.Model):
         verbose_name_plural = 'Empleados'
         ordering = ['id']
         db_table= "empleados"
+

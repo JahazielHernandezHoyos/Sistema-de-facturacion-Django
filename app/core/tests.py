@@ -1,12 +1,3 @@
-from core.models import *
-import os
+from django.test import TestCase
 
-from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
-
-application = get_wsgi_application()
-
-#listar
-query = type.object.all()
-print(query)
+# Create your tests here.

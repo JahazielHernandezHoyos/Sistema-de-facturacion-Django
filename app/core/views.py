@@ -1,7 +1,11 @@
+from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import render
-from django.http import HttpResponse
+
 
 # Create your views here.
 def myfirstview(request):
-    return HttpResponse('Hello World!')
+    data = {
+        'name': 'Juan',
+    }
+    return JsonResponse(data)
 

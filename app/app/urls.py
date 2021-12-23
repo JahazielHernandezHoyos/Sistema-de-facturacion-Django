@@ -19,5 +19,5 @@ from core.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('prueba/', views.prueba, name='prueba'),
+    path('prueba/', myfirstview),
 ]
